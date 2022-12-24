@@ -2,7 +2,7 @@ import axios from "axios";
 
 const server = "http://localhost:8080";
 
-export const signUp = async (data: any) => {
+export const signup = async (data: any) => {
   try {
     const response = await axios({
       method: "post",
