@@ -12,9 +12,13 @@ export const signup = async (data: any) => {
         password: data.password,
       },
     });
+
     console.log(response);
+    console.log("pass");
   } catch (e) {
     console.log(e);
+    console.log("error");
+    return e;
   }
 };
 

@@ -18,7 +18,7 @@ export default function SignupContainer() {
 
   const onClickSignup = () => {
     const { email, password } = userInput;
-    signup({ email, password });
+    signup({ email, password }).then((res) => res);
   };
   const onClickLoginPage = () => {
     navigate("/");
