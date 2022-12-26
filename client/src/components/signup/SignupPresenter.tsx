@@ -9,7 +9,7 @@ export default function SignupPresenter(props: any) {
           <p>이메일</p>
           <input
             name='email'
-            type='text'
+            type='email'
             placeholder='올바른 형식의 이메일을 입력해야 합니다.'
             onChange={props.onChangeUserInput}
           />
