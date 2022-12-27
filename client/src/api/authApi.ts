@@ -2,12 +2,31 @@ import axios from "axios";
 
 const server = "http://localhost:8080";
 
-export const getTodos = async (data: any) => {
+export const signup = async (data: any) => {
   try {
     const response = await axios({
       method: "post",
       url: server + "/users/create",
-      headers: { Authorization: `Bearer ${data.accessToken}` },
+      data: {
+        email: data.email,
+        password: data.password,
+      },
+    });
+    return response.status;
+  } catch (e: any) {
+    return e.response.status;
+  }
+};
+
+export const login = async (data: any) => {
+  try {
+    const response = await axios({
+      method: "post",
+      url: server + "/users/login",
+      data: {
+        email: data.email,
+        password: data.password,
+      },
     });
     console.log(response);
   } catch (e) {

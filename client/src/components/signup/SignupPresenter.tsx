@@ -10,8 +10,8 @@ export default function SignupPresenter(props: any) {
           <input
             name='email'
             type='email'
-            placeholder='올바른 형식의 이메일을 입력해야 합니다.'
-            onChange={props.onChangeUserInput}
+            placeholder='"@" 와 "." 을 포함한 형식의 이메일을 입력해야 합니다.'
+            onChange={props.onChangeSignupUserInput}
           />
         </div>
         <div>
@@ -20,7 +20,7 @@ export default function SignupPresenter(props: any) {
             name='password'
             type='password'
             placeholder='8글자 이상 입력해야 합니다.'
-            onChange={props.onChangeUserInput}
+            onChange={props.onChangeSignupUserInput}
           />
         </div>
         <div className='button__wrapper'>
