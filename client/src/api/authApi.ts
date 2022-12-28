@@ -12,9 +12,9 @@ export const signup = async (data: any) => {
         password: data.password,
       },
     });
-    return response.status;
+    return response;
   } catch (e: any) {
-    return e.response.status;
+    return e.response;
   }
 };
 
@@ -29,7 +29,9 @@ export const login = async (data: any) => {
       },
     });
     console.log(response);
-  } catch (e) {
-    console.log(e);
+    return response;
+  } catch (e: any) {
+    console.log(e.response);
+    return e.response;
   }
 };

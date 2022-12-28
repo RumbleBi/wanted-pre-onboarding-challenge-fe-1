@@ -18,11 +18,12 @@ export default function LoginContainer() {
   const onClickLogin = () => {
     const { email, password } = userLoginInput;
     login({ email, password }).then((res: any) => {
-      if (res === 400) {
+      if (res.status === 400) {
         alert("로그인에 실패했습니다. 이메일과 패스워드를 확인해 주세요.");
       }
-      if (res >= 200 && res <= 299) {
+      if (res.status >= 200 && res.status <= 299) {
         alert("로그인에 성공하였습니다!");
+        localStorage.setItem("access_token", res.data.token);
         navigate("/todos");
       }
     });
