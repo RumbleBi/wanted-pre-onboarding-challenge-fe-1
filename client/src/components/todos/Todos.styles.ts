@@ -46,3 +46,9 @@ export const TopWrapper = styled.div`
     }
   }
 `;
+export const BodyWrapper = styled.div`
+  width: 100%;
+  height: 350px;
+  background-color: red;
+  overflow-y: auto;
+`;

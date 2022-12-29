@@ -2,12 +2,11 @@ import { useState } from "react";
 import { createTodo, getTodos } from "../../../api/TodosApi";
 import TodosWritePresenter from "./TodosWrite.presenter";
 
-export default function TodosWriteContainer() {
+export default function TodosWriteContainer(props: any) {
   const [todoInput, setTodoInput] = useState({
     title: "",
     content: "",
   });
-
   const onChangeTodoInput = (e: any) => {
     setTodoInput({ ...todoInput, [e.target.name]: e.target.value });
   };
@@ -26,14 +25,17 @@ export default function TodosWriteContainer() {
       }
       if (res.status === 200) {
         alert("등록완료!");
+        setTodoInput({ title: "", content: "" });
+        console.log(todoInput);
         getTodos({ accessToken: localStorage.getItem("access_token") }).then((res) =>
-          console.log("2323", res)
+          props.setTodosData([...res?.data.data])
         );
       }
     });
   };
   return (
     <TodosWritePresenter
+      todoInput={todoInput}
       onClickCreateTodo={onClickCreateTodo}
       onChangeTodoInput={onChangeTodoInput}
     />
