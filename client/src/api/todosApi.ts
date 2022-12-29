@@ -5,14 +5,12 @@ const server = "http://localhost:8080";
 export const getTodos = async (data: any) => {
   try {
     const response = await axios({
-      method: "post",
-      url: server + "/users/create",
+      method: "get",
+      url: server + "/todos",
       headers: { Authorization: `Bearer ${data.accessToken}` },
     });
-    console.log(response);
     return response;
   } catch (e: any) {
-    console.log(e.response);
     return e.response;
   }
 };

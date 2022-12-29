@@ -10,7 +10,6 @@ export default function TodosPresenter(props: any) {
           <h1>Todos</h1>
           <button onClick={props.onClickLogout}>로그아웃</button>
         </S.TopWrapper>
-
         <TodosListContainer />
         <TodosWriteContainer />
       </S.Container>

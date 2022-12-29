@@ -1,11 +1,18 @@
 import LoginPresenter from "./LoginPresenter";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { login } from "../../api/AuthApi";
 
 type userInput = { email?: string; password?: string };
 export default function LoginContainer() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem("access_token")) {
+      navigate("/todos");
+    }
+  }, [navigate]);
+
   const [userLoginInput, setUserLoginInput] = useState<userInput>({
     email: "",
     password: "",

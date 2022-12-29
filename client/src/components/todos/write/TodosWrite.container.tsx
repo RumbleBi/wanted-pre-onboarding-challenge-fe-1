@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createTodo } from "../../../api/TodosApi";
+import { createTodo, getTodos } from "../../../api/TodosApi";
 import TodosWritePresenter from "./TodosWrite.presenter";
 
 export default function TodosWriteContainer() {
@@ -26,6 +26,9 @@ export default function TodosWriteContainer() {
       }
       if (res.status === 200) {
         alert("등록완료!");
+        getTodos({ accessToken: localStorage.getItem("access_token") }).then((res) =>
+          console.log("2323", res)
+        );
       }
     });
   };
