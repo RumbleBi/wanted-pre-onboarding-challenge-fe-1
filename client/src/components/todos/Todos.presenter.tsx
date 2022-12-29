@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import { getDate } from "../../libraries/utils";
 import * as S from "./Todos.styles";
 import TodosWriteContainer from "./write/TodosWrite.container";
 
 export default function TodosPresenter(props: any) {
+  const navigate = useNavigate();
   return (
     <S.Background>
       <S.Container>
@@ -12,13 +14,14 @@ export default function TodosPresenter(props: any) {
         </S.TopWrapper>
         <S.BodyWrapper>
           {props.todosData?.map((el: any) => (
-            <S.TodoItem key={el.id} onClick={props.onClickTodoItem}>
-              <div>
-                <span>제목: {el.title}</span>
-                <span>{getDate(el.createdAt)}</span>
-              </div>
-              <div>내용: {el.content}</div>
-            </S.TodoItem>
+            <>
+              <S.TodoItem key={el.id} onClick={() => navigate(`/todos/${el.id}`)}>
+                <div>
+                  <span>제목: {el.title}</span>
+                  <span>{getDate(el.createdAt)}</span>
+                </div>
+              </S.TodoItem>
+            </>
           ))}
         </S.BodyWrapper>
         <TodosWriteContainer setTodosData={props.setTodosData} />

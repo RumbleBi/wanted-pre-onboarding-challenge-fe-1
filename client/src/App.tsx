@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginContainer from "./components/login/LoginContainer";
 import SignupContainer from "./components/signup/SignupContainer";
+import TodosDetailContainer from "./components/todos/detail/TodosDetail.container";
 import TodosContainer from "./components/todos/Todos.container";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
         <Route path='/' element={<LoginContainer />} />
         <Route path='/signup' element={<SignupContainer />} />
         <Route path='/todos' element={<TodosContainer />} />
+        <Route path='/todos/:id' element={<TodosContainer />} />
       </Routes>
     </BrowserRouter>
   );
