@@ -47,8 +47,47 @@ export const TopWrapper = styled.div`
   }
 `;
 export const BodyWrapper = styled.div`
+  margin-bottom: 20px;
+  color: #69491a;
   width: 100%;
   height: 350px;
-  background-color: red;
+  border: 2px solid #f2ab39;
+  border-radius: 20px;
+  padding: 10px;
+  background-color: #ffd954;
   overflow-y: auto;
+`;
+export const TodoItem = styled.div`
+  width: 100%;
+  margin: 10px 0px;
+  padding: 5px;
+  border: 2px solid #f2ab39;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  span:first-of-type {
+    width: 72%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  span:nth-of-type(2) {
+    padding-top: 4px;
+    text-align: end;
+    font-size: 12px;
+    width: 28%;
+  }
+  div:first-of-type {
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  div:nth-of-type(2) {
+    font-size: 14px;
+    overflow-wrap: break-word;
+  }
 `;
