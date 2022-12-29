@@ -75,7 +75,7 @@ export const TodoItem = styled.div`
     text-overflow: ellipsis;
   }
   span:nth-of-type(2) {
-    padding-top: 4px;
+    padding-top: 2px;
     text-align: end;
     font-size: 12px;
     width: 28%;
