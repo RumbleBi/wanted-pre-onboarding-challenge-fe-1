@@ -7,11 +7,21 @@ export default function ModalPresenter(props: any) {
       <S.Container>
         <div>
           <div>제목</div>
-          <input type='text' value={props.todoData.title} onChange={props.onChangeUpdateInput} />
+          <input
+            name='title'
+            type='text'
+            defaultValue={props.todoData.title}
+            onChange={props.onChangeUpdateInput}
+          />
         </div>
         <div>
           <div>내용</div>
-          <input type='text' value={props.todoData.content} onChange={props.onChangeUpdateInput} />
+          <input
+            name='content'
+            type='text'
+            defaultValue={props.todoData.content}
+            onChange={props.onChangeUpdateInput}
+          />
         </div>
         <div>
           <button onClick={props.onClickUpdateTodo}>수정</button>

@@ -12,7 +12,14 @@ export default function TodosDetailPresetner(props: any) {
         </div>
       </S.Container>
       {props.isUpdate && (
-        <ModalContainer setIsUpdate={props.setIsUpdate} todoData={props.todoData} />
+        <ModalContainer
+          setIsUpdate={props.setIsUpdate}
+          todoData={props.todoData}
+          setTodoData={props.setTodoData}
+          todosData={props.todosData}
+          setTodosData={props.setTodosData}
+          id={props.id}
+        />
       )}
     </>
   );

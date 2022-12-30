@@ -31,6 +31,8 @@ function TodosDetailContainer(props: any) {
   return (
     <TodosDetailPresetner
       id={props.id}
+      todosData={props.todosData}
+      setTodosData={props.setTodosData}
       onClickDeleteTodo={onClickDeleteTodo}
       setTodoData={setTodoData}
       todoData={todoData}

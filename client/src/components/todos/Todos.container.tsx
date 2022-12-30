@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getTodos } from "../../api/TodosApi";
 import { withAuth } from "../../auth/auth";
 import TodosPresenter from "./Todos.presenter";
 
 function TodosContainer() {
   const navigate = useNavigate();
-  const id = useParams();
 
   const [todosData, setTodosData] = useState<any>([]);
   useEffect(() => {
@@ -23,16 +22,11 @@ function TodosContainer() {
     }
   };
 
-  const onClickTodoItem = (e: any) => {
-    console.log(e.target.classname);
-    // navigate(`/todos/${e.target.key}`);
-  };
   return (
     <TodosPresenter
       onClickLogout={onClickLogout}
       todosData={todosData}
       setTodosData={setTodosData}
-      onClickTodoItem={onClickTodoItem}
     />
   );
 }

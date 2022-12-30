@@ -34,7 +34,11 @@ export default function TodosPresenter(props: any) {
                 </div>
               </S.TodoItem>
               {url === `/todos/${el.id}` && (
-                <TodosDetailContainer id={el.id} setTodosData={props.setTodosData} />
+                <TodosDetailContainer
+                  id={el.id}
+                  setTodosData={props.setTodosData}
+                  todosData={props.todosData}
+                />
               )}
             </>
           ))}
