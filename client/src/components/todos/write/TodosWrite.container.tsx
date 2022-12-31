@@ -26,7 +26,7 @@ export default function TodosWriteContainer(props: any) {
       if (res.status === 200) {
         alert("등록완료!");
         setTodoInput({ title: "", content: "" });
-        console.log(todoInput);
+
         getTodos({ accessToken: localStorage.getItem("access_token") }).then((res) =>
           props.setTodosData([...res?.data.data])
         );

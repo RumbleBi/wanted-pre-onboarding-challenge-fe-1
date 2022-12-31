@@ -22,16 +22,14 @@ export const getTodoById = async (data: any) => {
       url: server + `/todos/${data.id}`,
       headers: { Authorization: `Bearer ${data.accessToken}` },
     });
-    console.log(response);
+
     return response;
   } catch (e: any) {
-    console.log(e.response);
     return e.response;
   }
 };
 
 export const createTodo = async (data: any) => {
-  console.log(data);
   try {
     const response = await axios({
       method: "post",
@@ -42,10 +40,9 @@ export const createTodo = async (data: any) => {
         content: data.content,
       },
     });
-    console.log(response);
+
     return response;
   } catch (e: any) {
-    console.log(e.response);
     return e.response;
   }
 };
@@ -57,10 +54,9 @@ export const deleteTodo = async (data: any) => {
       url: server + `/todos/${data.id}`,
       headers: { Authorization: `Bearer ${data.accessToken}` },
     });
-    console.log(response);
+
     return response;
   } catch (e: any) {
-    console.log(e.response);
     return e.response;
   }
 };
@@ -76,10 +72,9 @@ export const updateTodo = async (data: any) => {
         content: data.content,
       },
     });
-    console.log(response);
+
     return response;
   } catch (e: any) {
-    console.log(e.response);
     return e.response;
   }
 };

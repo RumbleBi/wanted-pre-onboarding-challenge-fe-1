@@ -1,7 +1,6 @@
 import * as S from "./SignupStyles";
-import { IValidationProps } from "./SignupTypes";
-export default function SignupPresenter(props: any) {
-  console.log(props.validation);
+import { ISignupPresenter } from "./SignupTypes";
+export default function SignupPresenter(props: ISignupPresenter) {
   return (
     <S.Background>
       <S.Container validation={props.validation}>

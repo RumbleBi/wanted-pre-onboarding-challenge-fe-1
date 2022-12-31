@@ -28,10 +28,8 @@ export const login = async (data: any) => {
         password: data.password,
       },
     });
-    console.log(response);
     return response;
   } catch (e: any) {
-    console.log(e.response);
     return e.response;
   }
 };
