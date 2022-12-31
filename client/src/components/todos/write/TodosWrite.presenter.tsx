@@ -1,6 +1,7 @@
 import * as S from "./TodosWrite.styles";
+import { ITodosWritePresenterProps } from "./TodosWrite.types";
 
-export default function TodosWritePresenter(props: any) {
+export default function TodosWritePresenter(props: ITodosWritePresenterProps) {
   return (
     <>
       <S.Container>

@@ -1,13 +1,14 @@
 import ModalContainer from "../../modal/Modal.container";
 import * as S from "./TodosDetail.styles";
+import { ITodosDetailPresenterProps } from "./TodosDetail.types";
 
-export default function TodosDetailPresetner(props: any) {
+export default function TodosDetailPresetner(props: ITodosDetailPresenterProps) {
   return (
     <>
       <S.Container>
         <div>{props.todoData.content}</div>
         <div>
-          <button onClick={() => props.setIsUpdate((prev: boolean) => !prev)}>수정</button>
+          <button onClick={() => props.setIsUpdate((prev) => !prev)}>수정</button>
           <button onClick={props.onClickDeleteTodo}>삭제</button>
         </div>
       </S.Container>

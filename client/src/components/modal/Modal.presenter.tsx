@@ -1,6 +1,7 @@
 import * as S from "./Modal.styles";
+import { IModalPresenterProps } from "./Modal.types";
 
-export default function ModalPresenter(props: any) {
+export default function ModalPresenter(props: IModalPresenterProps) {
   return (
     <>
       <S.Background></S.Background>
@@ -25,7 +26,7 @@ export default function ModalPresenter(props: any) {
         </div>
         <div>
           <button onClick={props.onClickUpdateTodo}>수정</button>
-          <button onClick={() => props.setIsUpdate((prev: boolean) => !prev)}>취소</button>
+          <button onClick={() => props.setIsUpdate((prev) => !prev)}>취소</button>
         </div>
       </S.Container>
     </>

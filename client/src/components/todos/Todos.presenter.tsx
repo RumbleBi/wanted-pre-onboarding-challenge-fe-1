@@ -2,9 +2,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { getDate } from "../../libraries/utils";
 import TodosDetailContainer from "./detail/TodosDetail.container";
 import * as S from "./Todos.styles";
+import { ITodosPresenterProps } from "./Todos.types";
 import TodosWriteContainer from "./write/TodosWrite.container";
 
-export default function TodosPresenter(props: any) {
+export default function TodosPresenter(props: ITodosPresenterProps) {
   const navigate = useNavigate();
   const url = useLocation().pathname;
 

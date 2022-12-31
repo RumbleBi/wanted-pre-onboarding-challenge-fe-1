@@ -1,10 +1,12 @@
+import { ChangeEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { getTodos, updateTodo } from "../../api/TodosApi";
 import ModalPresenter from "./Modal.presenter";
+import { IModalContainerProps } from "./Modal.types";
 
-export default function ModalContainer(props: any) {
+export default function ModalContainer(props: IModalContainerProps) {
   const navigate = useNavigate();
-  const onChangeUpdateInput = (e: any) => {
+  const onChangeUpdateInput = (e: ChangeEvent<HTMLInputElement>) => {
     props.setTodoData({ ...props.todoData, [e.target.name]: e.target.value });
   };
 

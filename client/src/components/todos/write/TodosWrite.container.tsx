@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { createTodo, getTodos } from "../../../api/TodosApi";
 import TodosWritePresenter from "./TodosWrite.presenter";
+import { ITodosWriteContainerProps } from "./TodosWrite.types";
 
-export default function TodosWriteContainer(props: any) {
+export default function TodosWriteContainer(props: ITodosWriteContainerProps) {
   const [todoInput, setTodoInput] = useState({
     title: "",
     content: "",
   });
-  const onChangeTodoInput = (e: any) => {
+  const onChangeTodoInput = (e: ChangeEvent<HTMLInputElement>) => {
     setTodoInput({ ...todoInput, [e.target.name]: e.target.value });
   };
   const onClickCreateTodo = () => {

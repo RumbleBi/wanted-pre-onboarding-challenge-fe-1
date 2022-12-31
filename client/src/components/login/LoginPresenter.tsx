@@ -1,6 +1,7 @@
 import * as S from "./LoginStyles";
+import { ILoginPresenterProps } from "./LoginTypes";
 
-export default function LoginPresenter(props: any) {
+export default function LoginPresenter(props: ILoginPresenterProps) {
   return (
     <S.Background>
       <S.Container>

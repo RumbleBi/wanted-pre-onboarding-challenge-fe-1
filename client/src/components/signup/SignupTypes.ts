@@ -1,5 +1,9 @@
 import { ChangeEvent } from "react";
 
+export interface IUserSignupInput {
+  email?: string;
+  password?: string;
+}
 export interface ISignupPresenter {
   onChangeSignupUserInput: (e: ChangeEvent<HTMLInputElement>) => void;
   onClickSignup: () => void;

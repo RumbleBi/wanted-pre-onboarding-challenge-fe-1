@@ -1,15 +1,15 @@
 import SignupPresenter from "./SignupPresenter";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { signup } from "../../api/AuthApi";
 import { signupValidation } from "../../libraries/utils";
+import { IUserSignupInput } from "./SignupTypes";
 
-type userInput = { email?: string; password?: string };
 export default function SignupContainer() {
   const navigate = useNavigate();
 
   const [validation, setValidation] = useState(false);
-  const [userSignupInput, setUserSignupInput] = useState<userInput>({
+  const [userSignupInput, setUserSignupInput] = useState<IUserSignupInput>({
     email: "",
     password: "",
   });
@@ -23,13 +23,13 @@ export default function SignupContainer() {
     }
   }, [userSignupInput]);
 
-  const onChangeSignupUserInput = (e: any) => {
+  const onChangeSignupUserInput = (e: ChangeEvent<HTMLInputElement>) => {
     setUserSignupInput({ ...userSignupInput, [e.target.name]: e.target.value });
   };
 
   const onClickSignup = () => {
     const { email, password } = userSignupInput;
-    signup({ email, password }).then((res: any) => {
+    signup({ email, password }).then((res) => {
       if (res.status === 409) {
         alert("이미 존재하는 유저입니다.");
         return;

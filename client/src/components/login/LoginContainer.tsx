@@ -1,9 +1,9 @@
 import LoginPresenter from "./LoginPresenter";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { login } from "../../api/AuthApi";
+import { IUserSignupInput } from "./LoginTypes";
 
-type userInput = { email?: string; password?: string };
 export default function LoginContainer() {
   const navigate = useNavigate();
 
@@ -13,18 +13,18 @@ export default function LoginContainer() {
     }
   }, [navigate]);
 
-  const [userLoginInput, setUserLoginInput] = useState<userInput>({
+  const [userLoginInput, setUserLoginInput] = useState<IUserSignupInput>({
     email: "",
     password: "",
   });
 
-  const onChangeLoginUserInput = (e: any) => {
+  const onChangeLoginUserInput = (e: ChangeEvent<HTMLInputElement>) => {
     setUserLoginInput({ ...userLoginInput, [e.target.name]: e.target.value });
   };
 
   const onClickLogin = () => {
     const { email, password } = userLoginInput;
-    login({ email, password }).then((res: any) => {
+    login({ email, password }).then((res) => {
       if (res.status === 400) {
         alert("로그인에 실패했습니다. 이메일과 패스워드를 확인해 주세요.");
       }
