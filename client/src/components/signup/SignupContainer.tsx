@@ -1,16 +1,27 @@
 import SignupPresenter from "./SignupPresenter";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { signup } from "../../api/AuthApi";
+import { signupValidation } from "../../libraries/utils";
 
 type userInput = { email?: string; password?: string };
 export default function SignupContainer() {
   const navigate = useNavigate();
 
+  const [validation, setValidation] = useState(false);
   const [userSignupInput, setUserSignupInput] = useState<userInput>({
     email: "",
     password: "",
   });
+
+  useEffect(() => {
+    const { email, password } = userSignupInput;
+    if (signupValidation({ email, password })) {
+      setValidation(true);
+    } else {
+      setValidation(false);
+    }
+  }, [userSignupInput]);
 
   const onChangeSignupUserInput = (e: any) => {
     setUserSignupInput({ ...userSignupInput, [e.target.name]: e.target.value });
@@ -38,6 +49,7 @@ export default function SignupContainer() {
   };
   return (
     <SignupPresenter
+      validation={validation}
       onClickLoginPage={onClickLoginPage}
       onChangeSignupUserInput={onChangeSignupUserInput}
       onClickSignup={onClickSignup}

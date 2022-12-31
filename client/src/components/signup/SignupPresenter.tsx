@@ -1,9 +1,10 @@
 import * as S from "./SignupStyles";
-
+import { IValidationProps } from "./SignupTypes";
 export default function SignupPresenter(props: any) {
+  console.log(props.validation);
   return (
     <S.Background>
-      <S.Container>
+      <S.Container validation={props.validation}>
         <h1>회원가입</h1>
         <div>
           <p>이메일</p>

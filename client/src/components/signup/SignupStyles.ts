@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { IValidationProps } from "./SignupTypes";
 // font 색상 #69491A
 // container 색상 #E4B660
 // button 색상 #FFD954
@@ -61,6 +62,9 @@ export const Container = styled.div`
       font-size: 20px;
       font-weight: bold;
       cursor: pointer;
+    }
+    button:first-of-type {
+      background-color: ${(props: IValidationProps) => (props.validation ? "#ffd954" : "#ffffff")};
     }
   }
 `;
