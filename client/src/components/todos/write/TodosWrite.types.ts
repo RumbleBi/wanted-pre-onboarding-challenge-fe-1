@@ -1,4 +1,5 @@
 import { ChangeEvent, Dispatch, SetStateAction } from "react";
+import { ITodosData } from "../Todos.types";
 
 export interface ITodosWritePresenterProps {
   onChangeTodoInput: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -7,7 +8,7 @@ export interface ITodosWritePresenterProps {
 }
 
 export interface ITodosWriteContainerProps {
-  setTodosData: Dispatch<SetStateAction<any>>;
+  setTodosData: Dispatch<SetStateAction<ITodosData[]>>;
 }
 
 export interface ITodoInput {

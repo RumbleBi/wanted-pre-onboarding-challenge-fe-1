@@ -1,4 +1,5 @@
 import { ChangeEvent, Dispatch, SetStateAction } from "react";
+import { ITodosData } from "../todos/Todos.types";
 
 export interface IModalPresenterProps {
   todoData: ITodoData;
@@ -8,14 +9,14 @@ export interface IModalPresenterProps {
 }
 
 export interface IModalContainerProps {
-  setTodoData: Dispatch<SetStateAction<any>>;
-  setTodosData: Dispatch<SetStateAction<any>>;
+  setTodoData: Dispatch<SetStateAction<{ title: string; content: string }>>;
+  setTodosData: Dispatch<SetStateAction<ITodosData[]>>;
   setIsUpdate: Dispatch<SetStateAction<boolean>>;
   todoData: ITodoData;
   id: string;
 }
 
 interface ITodoData {
-  title?: string;
-  content?: string;
+  title: string;
+  content: string;
 }

@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getTodos } from "../../api/TodosApi";
 import { withAuth } from "../../auth/auth";
 import TodosPresenter from "./Todos.presenter";
-import { ITodos } from "./Todos.types";
+import { ITodosData } from "./Todos.types";
 
 function TodosContainer() {
   const navigate = useNavigate();
 
-  const [todosData, setTodosData] = useState<any>([]);
+  const [todosData, setTodosData] = useState<ITodosData[]>([]);
   useEffect(() => {
     getTodos({ accessToken: localStorage.getItem("access_token") }).then((res) => {
       setTodosData([...res.data?.data]);

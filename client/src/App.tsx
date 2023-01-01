@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginContainer from "./components/login/LoginContainer";
 import SignupContainer from "./components/signup/SignupContainer";
-import TodosDetailContainer from "./components/todos/detail/TodosDetail.container";
 import TodosContainer from "./components/todos/Todos.container";
 
 function App() {

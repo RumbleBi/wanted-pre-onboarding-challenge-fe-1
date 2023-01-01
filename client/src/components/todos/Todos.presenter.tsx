@@ -1,8 +1,9 @@
+import { Fragment } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getDate } from "../../libraries/utils";
 import TodosDetailContainer from "./detail/TodosDetail.container";
 import * as S from "./Todos.styles";
-import { ITodosPresenterProps } from "./Todos.types";
+import { ITodosData, ITodosPresenterProps } from "./Todos.types";
 import TodosWriteContainer from "./write/TodosWrite.container";
 
 export default function TodosPresenter(props: ITodosPresenterProps) {
@@ -17,10 +18,9 @@ export default function TodosPresenter(props: ITodosPresenterProps) {
           <button onClick={props.onClickLogout}>로그아웃</button>
         </S.TopWrapper>
         <S.BodyWrapper>
-          {props.todosData?.map((el: any) => (
-            <>
+          {props.todosData?.map((el: ITodosData) => (
+            <Fragment key={el.id}>
               <S.TodoItem
-                key={el.id}
                 onClick={() => {
                   if (url !== `/todos/${el.id}`) {
                     navigate(`/todos/${el.id}`);
@@ -31,13 +31,13 @@ export default function TodosPresenter(props: ITodosPresenterProps) {
               >
                 <div>
                   <span>제목: {el.title}</span>
-                  <span>{getDate(el.createdAt)}</span>
+                  <span>{getDate(el.updatedAt)}</span>
                 </div>
               </S.TodoItem>
               {url === `/todos/${el.id}` && (
                 <TodosDetailContainer id={el.id} setTodosData={props.setTodosData} />
               )}
-            </>
+            </Fragment>
           ))}
         </S.BodyWrapper>
         <TodosWriteContainer setTodosData={props.setTodosData} />

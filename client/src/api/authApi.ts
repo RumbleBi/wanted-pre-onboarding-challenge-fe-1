@@ -3,8 +3,8 @@ import axios from "axios";
 const server = "http://localhost:8080";
 
 interface IData {
-  email: string | undefined;
-  password: string | undefined;
+  email?: string;
+  password?: string;
 }
 export const signup = async (data: IData) => {
   try {
