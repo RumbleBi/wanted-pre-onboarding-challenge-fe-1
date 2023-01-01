@@ -2,7 +2,14 @@ import axios from "axios";
 
 const server = "http://localhost:8080";
 
-export const getTodos = async (data: any) => {
+interface IData {
+  accessToken?: string | null;
+  id?: string;
+  title?: string;
+  content?: string;
+}
+
+export const getTodos = async (data: IData) => {
   try {
     const response = await axios({
       method: "get",
@@ -15,7 +22,7 @@ export const getTodos = async (data: any) => {
   }
 };
 
-export const getTodoById = async (data: any) => {
+export const getTodoById = async (data: IData) => {
   try {
     const response = await axios({
       method: "get",
@@ -29,7 +36,7 @@ export const getTodoById = async (data: any) => {
   }
 };
 
-export const createTodo = async (data: any) => {
+export const createTodo = async (data: IData) => {
   try {
     const response = await axios({
       method: "post",
@@ -47,7 +54,7 @@ export const createTodo = async (data: any) => {
   }
 };
 
-export const deleteTodo = async (data: any) => {
+export const deleteTodo = async (data: IData) => {
   try {
     const response = await axios({
       method: "delete",
@@ -61,7 +68,7 @@ export const deleteTodo = async (data: any) => {
   }
 };
 
-export const updateTodo = async (data: any) => {
+export const updateTodo = async (data: IData) => {
   try {
     const response = await axios({
       method: "put",

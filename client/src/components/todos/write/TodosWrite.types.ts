@@ -7,7 +7,7 @@ export interface ITodosWritePresenterProps {
 }
 
 export interface ITodosWriteContainerProps {
-  setTodosData: Dispatch<SetStateAction<[]>>;
+  setTodosData: Dispatch<SetStateAction<any>>;
 }
 
 export interface ITodoInput {

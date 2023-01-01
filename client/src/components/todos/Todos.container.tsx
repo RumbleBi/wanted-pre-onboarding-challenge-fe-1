@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { getTodos } from "../../api/TodosApi";
 import { withAuth } from "../../auth/auth";
 import TodosPresenter from "./Todos.presenter";
+import { ITodos } from "./Todos.types";
 
 function TodosContainer() {
   const navigate = useNavigate();

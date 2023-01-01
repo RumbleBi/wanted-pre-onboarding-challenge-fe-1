@@ -2,7 +2,11 @@ import axios from "axios";
 
 const server = "http://localhost:8080";
 
-export const signup = async (data: any) => {
+interface IData {
+  email: string | undefined;
+  password: string | undefined;
+}
+export const signup = async (data: IData) => {
   try {
     const response = await axios({
       method: "post",
@@ -18,7 +22,7 @@ export const signup = async (data: any) => {
   }
 };
 
-export const login = async (data: any) => {
+export const login = async (data: IData) => {
   try {
     const response = await axios({
       method: "post",

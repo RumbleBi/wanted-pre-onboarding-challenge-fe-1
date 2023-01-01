@@ -17,7 +17,6 @@ export default function TodosDetailPresetner(props: ITodosDetailPresenterProps) 
           setIsUpdate={props.setIsUpdate}
           todoData={props.todoData}
           setTodoData={props.setTodoData}
-          todosData={props.todosData}
           setTodosData={props.setTodosData}
           id={props.id}
         />

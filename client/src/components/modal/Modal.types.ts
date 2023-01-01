@@ -8,8 +8,8 @@ export interface IModalPresenterProps {
 }
 
 export interface IModalContainerProps {
-  setTodoData: Dispatch<SetStateAction<{}>>;
-  setTodosData: Dispatch<SetStateAction<{}>>;
+  setTodoData: Dispatch<SetStateAction<any>>;
+  setTodosData: Dispatch<SetStateAction<any>>;
   setIsUpdate: Dispatch<SetStateAction<boolean>>;
   todoData: ITodoData;
   id: string;

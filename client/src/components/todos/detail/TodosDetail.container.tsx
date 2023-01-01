@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { deleteTodo, getTodoById, getTodos } from "../../../api/TodosApi";
 import { withAuth } from "../../../auth/auth";
 import TodosDetailPresetner from "./TodosDetail.presenter";
+import { ITodosDetailContainerProps } from "./TodosDetail.types";
 
-function TodosDetailContainer(props: any) {
+function TodosDetailContainer(props: ITodosDetailContainerProps) {
   const navigate = useNavigate();
   const [isUpdate, setIsUpdate] = useState(false);
   const [todoData, setTodoData] = useState({
@@ -28,10 +29,10 @@ function TodosDetailContainer(props: any) {
       navigate("/todos");
     }
   };
+
   return (
     <TodosDetailPresetner
       id={props.id}
-      todosData={props.todosData}
       setTodosData={props.setTodosData}
       onClickDeleteTodo={onClickDeleteTodo}
       setTodoData={setTodoData}

@@ -7,7 +7,7 @@ export const getDate = (data: string) => {
   return `${year}.${month}.${day} ${hour}시 ${min}분`;
 };
 
-export const signupValidation = (data: any) => {
+export const signupValidation = (data: { email: string; password: string }) => {
   const emailRegExp =
     /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
   const passwordRegExp = /^.{8,}$/;
