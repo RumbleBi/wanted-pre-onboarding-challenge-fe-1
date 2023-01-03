@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getTodos, updateTodo } from "../../api/todosApi";
 import ModalPresenter from "./Modal.presenter";
@@ -6,12 +6,16 @@ import { IModalContainerProps } from "./Modal.types";
 
 export default function ModalContainer(props: IModalContainerProps) {
   const navigate = useNavigate();
+  const [todoUpdate, setTodoUpdate] = useState({
+    title: props.todoData.title,
+    content: props.todoData.content,
+  });
   const onChangeUpdateInput = (e: ChangeEvent<HTMLInputElement>) => {
-    props.setTodoData({ ...props.todoData, [e.target.name]: e.target.value });
+    setTodoUpdate({ ...todoUpdate, [e.target.name]: e.target.value });
   };
 
   const onClickUpdateTodo = () => {
-    const { title, content } = props.todoData;
+    const { title, content } = todoUpdate;
 
     if (title === "" || content === "") {
       alert("제목 또는 내용을 반드시 입력해야 합니다");
