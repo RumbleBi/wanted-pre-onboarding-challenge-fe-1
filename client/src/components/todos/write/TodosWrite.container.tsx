@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from "react";
-import { createTodo, getTodos } from "../../../api/TodosApi";
+import { createTodo, getTodos } from "../../../api/todosApi";
 import TodosWritePresenter from "./TodosWrite.presenter";
 import { ITodosWriteContainerProps } from "./TodosWrite.types";
 

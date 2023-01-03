@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getTodos } from "../../api/TodosApi";
+import { getTodos } from "../../api/todosApi";
 import { withAuth } from "../../auth/auth";
 import TodosPresenter from "./Todos.presenter";
 import { ITodosData } from "./Todos.types";

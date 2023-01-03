@@ -1,7 +1,7 @@
 import LoginPresenter from "./LoginPresenter";
 import { useNavigate } from "react-router-dom";
 import { ChangeEvent, useEffect, useState } from "react";
-import { login } from "../../api/AuthApi";
+import { login } from "../../api/authApi";
 import { IUserSignupInput } from "./LoginTypes";
 
 export default function LoginContainer() {

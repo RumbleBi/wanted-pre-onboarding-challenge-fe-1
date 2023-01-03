@@ -1,6 +1,6 @@
 import { ChangeEvent } from "react";
 import { useNavigate } from "react-router-dom";
-import { getTodos, updateTodo } from "../../api/TodosApi";
+import { getTodos, updateTodo } from "../../api/todosApi";
 import ModalPresenter from "./Modal.presenter";
 import { IModalContainerProps } from "./Modal.types";
 

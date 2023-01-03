@@ -1,7 +1,7 @@
 import SignupPresenter from "./SignupPresenter";
 import { useNavigate } from "react-router-dom";
 import { ChangeEvent, useEffect, useState } from "react";
-import { signup } from "../../api/AuthApi";
+import { signup } from "../../api/authApi";
 import { signupValidation } from "../../libraries/utils";
 import { IUserSignupInput } from "./SignupTypes";
 

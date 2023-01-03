@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { deleteTodo, getTodoById, getTodos } from "../../../api/TodosApi";
+import { deleteTodo, getTodoById, getTodos } from "../../../api/todosApi";
 import { withAuth } from "../../../auth/auth";
 import TodosDetailPresetner from "./TodosDetail.presenter";
 import { ITodosDetailContainerProps } from "./TodosDetail.types";
