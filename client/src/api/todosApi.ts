@@ -3,7 +3,7 @@ import axios from "axios";
 const server = "http://localhost:8080";
 
 interface IData {
-  accessToken: string | null;
+  accessToken?: string | null;
   id?: string;
   title?: string;
   content?: string;

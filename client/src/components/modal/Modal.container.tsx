@@ -1,11 +1,13 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getTodos, updateTodo } from "../../api/todosApi";
+import { GlobalContext } from "../../App";
 import ModalPresenter from "./Modal.presenter";
 import { IModalContainerProps } from "./Modal.types";
 
 export default function ModalContainer(props: IModalContainerProps) {
   const navigate = useNavigate();
+  const { accessToken } = useContext(GlobalContext);
   const [todoUpdate, setTodoUpdate] = useState({
     title: props.todoData.title,
     content: props.todoData.content,
@@ -25,12 +27,10 @@ export default function ModalContainer(props: IModalContainerProps) {
       id: props.id,
       title,
       content,
-      accessToken: localStorage.getItem("access_token"),
+      accessToken,
     }).then(() => {
       alert("수정되었습니다!");
-      getTodos({ accessToken: localStorage.getItem("access_token") }).then((res) =>
-        props.setTodosData([...res?.data.data])
-      );
+      getTodos({ accessToken }).then((res) => props.setTodosData([...res?.data.data]));
       navigate("/todos");
     });
   };
