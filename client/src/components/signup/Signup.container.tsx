@@ -1,34 +1,34 @@
-import SignupPresenter from "./SignupPresenter";
+import SignupPresenter from "./Signup.presenter";
 import { useNavigate } from "react-router-dom";
 import { ChangeEvent, useEffect, useState } from "react";
 import { signup } from "../../api/authApi";
 import { signupValidation } from "../../libraries/utils";
-import { IUserSignupInput } from "./SignupTypes";
+import { ISignupInput } from "./Signup.types";
 
 export default function SignupContainer() {
   const navigate = useNavigate();
 
-  const [validation, setValidation] = useState(false);
-  const [userSignupInput, setUserSignupInput] = useState<IUserSignupInput>({
+  const [canSignin, setCanSignin] = useState(false);
+  const [signupInput, setSignupInput] = useState<ISignupInput>({
     email: "",
     password: "",
   });
 
   useEffect(() => {
-    const { email, password } = userSignupInput;
+    const { email, password } = signupInput;
     if (signupValidation({ email, password })) {
-      setValidation(true);
+      setCanSignin(true);
     } else {
-      setValidation(false);
+      setCanSignin(false);
     }
-  }, [userSignupInput]);
+  }, [signupInput]);
 
-  const onChangeSignupUserInput = (e: ChangeEvent<HTMLInputElement>) => {
-    setUserSignupInput({ ...userSignupInput, [e.target.name]: e.target.value });
+  const handleSignupChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSignupInput({ ...signupInput, [e.target.name]: e.target.value });
   };
 
-  const onClickSignup = () => {
-    const { email, password } = userSignupInput;
+  const handleSignupSubmit = () => {
+    const { email, password } = signupInput;
     signup({ email, password }).then((res) => {
       if (res.status === 409) {
         alert("이미 존재하는 유저입니다.");
@@ -38,21 +38,21 @@ export default function SignupContainer() {
         alert("이메일 형식에 맞게 입력해주세요. 또는 패스워드의 길이는 8자리 이상이어야 합니다.");
         return;
       }
-      if (res.status >= 200 && res.status <= 299) {
+      if (res.status >= 200 && res.status <= 399) {
         alert("회원가입을 축하합니다!");
         navigate("/");
       }
     });
   };
-  const onClickLoginPage = () => {
+  const handleLoginPage = () => {
     navigate("/");
   };
   return (
     <SignupPresenter
-      validation={validation}
-      onClickLoginPage={onClickLoginPage}
-      onChangeSignupUserInput={onChangeSignupUserInput}
-      onClickSignup={onClickSignup}
+      canSignin={canSignin}
+      handleLoginPage={handleLoginPage}
+      handleSignupChange={handleSignupChange}
+      handleSignupSubmit={handleSignupSubmit}
     />
   );
 }

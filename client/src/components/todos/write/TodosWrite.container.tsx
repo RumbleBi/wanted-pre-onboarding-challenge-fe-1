@@ -10,10 +10,12 @@ export default function TodosWriteContainer(props: ITodosWriteContainerProps) {
     title: "",
     content: "",
   });
-  const onChangeTodoInput = (e: ChangeEvent<HTMLInputElement>) => {
+
+  const handleTodoInput = (e: ChangeEvent<HTMLInputElement>) => {
     setTodoInput({ ...todoInput, [e.target.name]: e.target.value });
   };
-  const onClickCreateTodo = () => {
+
+  const handleTodoSubmit = () => {
     const { title, content } = todoInput;
 
     if (title === "" || content === "") {
@@ -28,7 +30,6 @@ export default function TodosWriteContainer(props: ITodosWriteContainerProps) {
       if (res.status === 200) {
         alert("등록완료!");
         setTodoInput({ title: "", content: "" });
-
         getTodos({ accessToken }).then((res) => props.setTodosData([...res?.data.data]));
       }
     });
@@ -36,8 +37,8 @@ export default function TodosWriteContainer(props: ITodosWriteContainerProps) {
   return (
     <TodosWritePresenter
       todoInput={todoInput}
-      onClickCreateTodo={onClickCreateTodo}
-      onChangeTodoInput={onChangeTodoInput}
+      handleTodoSubmit={handleTodoSubmit}
+      handleTodoInput={handleTodoInput}
     />
   );
 }

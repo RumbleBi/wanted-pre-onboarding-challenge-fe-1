@@ -9,7 +9,7 @@ export default function TodosDetailPresetner(props: ITodosDetailPresenterProps) 
         <div>{props.todoData.content}</div>
         <div>
           <button onClick={() => props.setIsUpdate((prev) => !prev)}>수정</button>
-          <button onClick={props.onClickDeleteTodo}>삭제</button>
+          <button onClick={props.handleTodoDelete}>삭제</button>
         </div>
       </S.Container>
       {props.isUpdate && (

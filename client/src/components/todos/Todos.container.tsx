@@ -17,7 +17,7 @@ function TodosContainer() {
     });
   }, [accessToken]);
 
-  const onClickLogout = () => {
+  const handleLogoutPage = () => {
     if (window.confirm("로그아웃 하시겠습니까?")) {
       localStorage.removeItem("access_token");
       alert("로그아웃 되었습니다!");
@@ -27,7 +27,7 @@ function TodosContainer() {
 
   return (
     <TodosPresenter
-      onClickLogout={onClickLogout}
+      handleLogoutPage={handleLogoutPage}
       todosData={todosData}
       setTodosData={setTodosData}
     />

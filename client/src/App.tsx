@@ -1,7 +1,7 @@
 import { createContext, Dispatch, SetStateAction, useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LoginContainer from "./components/login/LoginContainer";
-import SignupContainer from "./components/signup/SignupContainer";
+import LoginContainer from "./components/login/Login.container";
+import SignupContainer from "./components/signup/Signup.container";
 import TodosContainer from "./components/todos/Todos.container";
 
 interface IGlobalContext {

@@ -12,7 +12,7 @@ export default function ModalPresenter(props: IModalPresenterProps) {
             name='title'
             type='text'
             defaultValue={props.todoData.title}
-            onChange={props.onChangeUpdateInput}
+            onChange={props.handleTodoUpdateInput}
           />
         </div>
         <div>
@@ -21,11 +21,11 @@ export default function ModalPresenter(props: IModalPresenterProps) {
             name='content'
             type='text'
             defaultValue={props.todoData.content}
-            onChange={props.onChangeUpdateInput}
+            onChange={props.handleTodoUpdateInput}
           />
         </div>
         <div>
-          <button onClick={props.onClickUpdateTodo}>수정</button>
+          <button onClick={props.handleTodoUpdateSubmit}>수정</button>
           <button onClick={() => props.setIsUpdate((prev) => !prev)}>취소</button>
         </div>
       </S.Container>

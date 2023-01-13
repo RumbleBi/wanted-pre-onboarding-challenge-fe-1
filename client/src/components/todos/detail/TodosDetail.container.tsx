@@ -8,7 +8,9 @@ import { ITodosDetailContainerProps } from "./TodosDetail.types";
 
 function TodosDetailContainer(props: ITodosDetailContainerProps) {
   const navigate = useNavigate();
+
   const { accessToken } = useContext(GlobalContext);
+
   const [isUpdate, setIsUpdate] = useState(false);
   const [todoData, setTodoData] = useState({
     title: "",
@@ -21,7 +23,7 @@ function TodosDetailContainer(props: ITodosDetailContainerProps) {
     });
   }, [props.id, accessToken]);
 
-  const onClickDeleteTodo = () => {
+  const handleTodoDelete = () => {
     if (window.confirm("삭제하시겠습니까?")) {
       deleteTodo({ id: props.id, accessToken });
       alert("삭제되었습니다!");
@@ -36,7 +38,7 @@ function TodosDetailContainer(props: ITodosDetailContainerProps) {
     <TodosDetailPresetner
       id={props.id}
       setTodosData={props.setTodosData}
-      onClickDeleteTodo={onClickDeleteTodo}
+      handleTodoDelete={handleTodoDelete}
       setTodoData={setTodoData}
       todoData={todoData}
       isUpdate={isUpdate}

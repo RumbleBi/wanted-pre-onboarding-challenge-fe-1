@@ -1,8 +1,8 @@
-import LoginPresenter from "./LoginPresenter";
+import LoginPresenter from "./Login.presenter";
 import { useNavigate } from "react-router-dom";
 import { ChangeEvent, useContext, useEffect, useState } from "react";
 import { login } from "../../api/authApi";
-import { IUserSignupInput } from "./LoginTypes";
+import { ILoginInput } from "./Login.types";
 import { GlobalContext } from "../../App";
 
 export default function LoginContainer() {
@@ -15,17 +15,17 @@ export default function LoginContainer() {
     }
   }, [navigate, accessToken]);
 
-  const [userLoginInput, setUserLoginInput] = useState<IUserSignupInput>({
+  const [loginInput, setLoginInput] = useState<ILoginInput>({
     email: "",
     password: "",
   });
 
-  const onChangeLoginUserInput = (e: ChangeEvent<HTMLInputElement>) => {
-    setUserLoginInput({ ...userLoginInput, [e.target.name]: e.target.value });
+  const handleLoginInput = (e: ChangeEvent<HTMLInputElement>) => {
+    setLoginInput({ ...loginInput, [e.target.name]: e.target.value });
   };
 
-  const onClickLogin = () => {
-    const { email, password } = userLoginInput;
+  const handleLoginSubmit = () => {
+    const { email, password } = loginInput;
     login({ email, password }).then((res) => {
       if (res.status === 400) {
         alert("로그인에 실패했습니다. 이메일과 패스워드를 확인해 주세요.");
@@ -37,15 +37,15 @@ export default function LoginContainer() {
       }
     });
   };
-  const onClickSignupPage = () => {
+  const handleSignupPage = () => {
     navigate("/signup");
   };
 
   return (
     <LoginPresenter
-      onClickSignupPage={onClickSignupPage}
-      onClickLogin={onClickLogin}
-      onChangeLoginUserInput={onChangeLoginUserInput}
+      handleSignupPage={handleSignupPage}
+      handleLoginSubmit={handleLoginSubmit}
+      handleLoginInput={handleLoginInput}
     />
   );
 }

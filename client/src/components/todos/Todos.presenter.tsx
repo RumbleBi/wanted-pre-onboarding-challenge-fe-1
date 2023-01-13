@@ -15,7 +15,7 @@ export default function TodosPresenter(props: ITodosPresenterProps) {
       <S.Container>
         <S.TopWrapper>
           <h1>Todos</h1>
-          <button onClick={props.onClickLogout}>로그아웃</button>
+          <button onClick={props.handleLogoutPage}>로그아웃</button>
         </S.TopWrapper>
         <S.BodyWrapper>
           {props.todosData?.map((el: ITodosData) => (

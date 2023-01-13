@@ -1,5 +1,5 @@
-import * as S from "./LoginStyles";
-import { ILoginPresenterProps } from "./LoginTypes";
+import * as S from "./Login.styles";
+import { ILoginPresenterProps } from "./Login.types";
 
 export default function LoginPresenter(props: ILoginPresenterProps) {
   return (
@@ -12,7 +12,7 @@ export default function LoginPresenter(props: ILoginPresenterProps) {
             name='email'
             type='email'
             placeholder='"@" 와 "." 을 포함한 형식의 이메일을 입력해야 합니다.'
-            onChange={props.onChangeLoginUserInput}
+            onChange={props.handleLoginInput}
           />
         </div>
         <div>
@@ -21,12 +21,12 @@ export default function LoginPresenter(props: ILoginPresenterProps) {
             name='password'
             type='password'
             placeholder='8글자 이상 입력해야 합니다.'
-            onChange={props.onChangeLoginUserInput}
+            onChange={props.handleLoginInput}
           />
         </div>
         <div className='button__wrapper'>
-          <button onClick={props.onClickLogin}>로그인</button>
-          <button onClick={props.onClickSignupPage}>회원가입</button>
+          <button onClick={props.handleLoginSubmit}>로그인</button>
+          <button onClick={props.handleSignupPage}>회원가입</button>
         </div>
       </S.Container>
     </S.Background>

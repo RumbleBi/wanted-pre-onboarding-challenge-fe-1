@@ -8,15 +8,17 @@ import { IModalContainerProps } from "./Modal.types";
 export default function ModalContainer(props: IModalContainerProps) {
   const navigate = useNavigate();
   const { accessToken } = useContext(GlobalContext);
+
   const [todoUpdate, setTodoUpdate] = useState({
     title: props.todoData.title,
     content: props.todoData.content,
   });
-  const onChangeUpdateInput = (e: ChangeEvent<HTMLInputElement>) => {
+
+  const handleTodoUpdateInput = (e: ChangeEvent<HTMLInputElement>) => {
     setTodoUpdate({ ...todoUpdate, [e.target.name]: e.target.value });
   };
 
-  const onClickUpdateTodo = () => {
+  const handleTodoUpdateSubmit = () => {
     const { title, content } = todoUpdate;
 
     if (title === "" || content === "") {
@@ -38,8 +40,8 @@ export default function ModalContainer(props: IModalContainerProps) {
     <ModalPresenter
       todoData={props.todoData}
       setIsUpdate={props.setIsUpdate}
-      onChangeUpdateInput={onChangeUpdateInput}
-      onClickUpdateTodo={onClickUpdateTodo}
+      handleTodoUpdateInput={handleTodoUpdateInput}
+      handleTodoUpdateSubmit={handleTodoUpdateSubmit}
     />
   );
 }

@@ -4,7 +4,7 @@ import { ITodosData } from "../Todos.types";
 export interface ITodosDetailPresenterProps {
   todoData: ITodoData;
   setIsUpdate: Dispatch<SetStateAction<boolean>>;
-  onClickDeleteTodo: () => void;
+  handleTodoDelete: () => void;
   isUpdate: boolean;
   setTodoData: Dispatch<SetStateAction<ITodoData>>;
   setTodosData: Dispatch<SetStateAction<ITodosData[]>>;

@@ -3,8 +3,8 @@ import { ITodosData } from "../todos/Todos.types";
 
 export interface IModalPresenterProps {
   todoData: ITodoData;
-  onChangeUpdateInput: (e: ChangeEvent<HTMLInputElement>) => void;
-  onClickUpdateTodo: () => void;
+  handleTodoUpdateInput: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleTodoUpdateSubmit: () => void;
   setIsUpdate: Dispatch<SetStateAction<boolean>>;
 }
 

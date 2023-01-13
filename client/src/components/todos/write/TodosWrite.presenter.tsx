@@ -10,18 +10,18 @@ export default function TodosWritePresenter(props: ITodosWritePresenterProps) {
             name='title'
             type='text'
             placeholder='제목을 입력해주세요.'
-            onChange={props.onChangeTodoInput}
+            onChange={props.handleTodoInput}
             value={props.todoInput.title}
           />
           <input
             name='content'
             type='text'
             placeholder='할 일을 입력해주세요.'
-            onChange={props.onChangeTodoInput}
+            onChange={props.handleTodoInput}
             value={props.todoInput.content}
           />
         </div>
-        <button onClick={props.onClickCreateTodo}>등록</button>
+        <button onClick={props.handleTodoSubmit}>등록</button>
       </S.Container>
     </>
   );

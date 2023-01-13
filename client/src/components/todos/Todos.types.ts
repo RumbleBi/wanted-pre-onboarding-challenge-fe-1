@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 
 export interface ITodosPresenterProps {
-  onClickLogout: () => void;
+  handleLogoutPage: () => void;
 
   todosData: TodosData[];
   setTodosData: Dispatch<SetStateAction<ITodosData[]>>;
