@@ -1,6 +1,7 @@
 import axios from "axios";
+import config from "../config";
 
-const server = "http://localhost:8080";
+const server = config.baseUrl;
 
 interface IData {
   email: string;
