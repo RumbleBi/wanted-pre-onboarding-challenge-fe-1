@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const withAuth = (Component: any) => (props: any) => {
+export const withAuth = (Component: React.FC) => (props: any) => {
   const navigate = useNavigate();
 
   useEffect(() => {
