@@ -4,10 +4,13 @@ import { ChangeEvent, useEffect, useState } from "react";
 import { signup } from "../../api/authApi";
 import { signupValidation } from "../../libraries/utils";
 import { ISignupInput } from "./Signup.types";
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from "../../config";
 
 export default function SignupContainer() {
   const navigate = useNavigate();
 
+  const app = initializeApp(firebaseConfig);
   const [canSignin, setCanSignin] = useState(false);
   const [signupInput, setSignupInput] = useState<ISignupInput>({
     email: "",
