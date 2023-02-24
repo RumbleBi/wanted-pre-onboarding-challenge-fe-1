@@ -4,6 +4,7 @@ import { ChangeEvent, useContext, useEffect, useState } from "react";
 import { login } from "../../api/authApi";
 import { ILoginInput } from "./Login.types";
 import { GlobalContext } from "../../App";
+import { loginGoogle } from "../../firebase/firebase";
 
 export default function LoginContainer() {
   const navigate = useNavigate();
@@ -22,6 +23,13 @@ export default function LoginContainer() {
 
   const handleLoginInput = (e: ChangeEvent<HTMLInputElement>) => {
     setLoginInput({ ...loginInput, [e.target.name]: e.target.value });
+  };
+  const handleLoginGoogleSubmit = () => {
+    loginGoogle().then((res) => {
+      console.log(res);
+      const user = res.user;
+      alert(`이메일: ${user.email} UID: ${user.uid}`);
+    });
   };
 
   const handleLoginSubmit = () => {
@@ -45,6 +53,7 @@ export default function LoginContainer() {
     <LoginPresenter
       handleSignupPage={handleSignupPage}
       handleLoginSubmit={handleLoginSubmit}
+      handleLoginGoogleSubmit={handleLoginGoogleSubmit}
       handleLoginInput={handleLoginInput}
     />
   );

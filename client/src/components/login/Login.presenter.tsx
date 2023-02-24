@@ -27,6 +27,7 @@ export default function LoginPresenter(props: ILoginPresenterProps) {
         <div className='button__wrapper'>
           <button onClick={props.handleLoginSubmit}>로그인</button>
           <button onClick={props.handleSignupPage}>회원가입</button>
+          <button onClick={props.handleLoginGoogleSubmit}>Google 로그인</button>
         </div>
       </S.Container>
     </S.Background>

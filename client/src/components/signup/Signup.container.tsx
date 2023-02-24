@@ -4,13 +4,11 @@ import { ChangeEvent, useEffect, useState } from "react";
 import { signup } from "../../api/authApi";
 import { signupValidation } from "../../libraries/utils";
 import { ISignupInput } from "./Signup.types";
-import { initializeApp } from "firebase/app";
-import { firebaseConfig } from "../../config";
+import { signupEmail } from "../../firebase/firebase";
 
 export default function SignupContainer() {
   const navigate = useNavigate();
 
-  const app = initializeApp(firebaseConfig);
   const [canSignin, setCanSignin] = useState(false);
   const [signupInput, setSignupInput] = useState<ISignupInput>({
     email: "",
@@ -32,6 +30,16 @@ export default function SignupContainer() {
 
   const handleSignupSubmit = () => {
     const { email, password } = signupInput;
+
+    //
+    signupEmail({ email, password })
+      .then((res) => {
+        const user = res.user;
+        alert(`이메일: ${user.email} 유저UID: ${user.uid}`);
+      })
+      .catch((error) => console.log(error));
+    //
+
     signup({ email, password }).then((res) => {
       if (res.status === 409) {
         alert("이미 존재하는 유저입니다.");

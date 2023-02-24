@@ -8,5 +8,6 @@ export interface ILoginInput {
 export interface ILoginPresenterProps {
   handleLoginInput: (e: ChangeEvent<HTMLInputElement>) => void;
   handleLoginSubmit: () => void;
+  handleLoginGoogleSubmit: () => void;
   handleSignupPage: () => void;
 }
